@@ -8,3 +8,6 @@
 * Author URI: https://divi.tech/
 **/
 
+if (is_woocommerce() && is_product()) {
+	var_dump('run code');
+}
