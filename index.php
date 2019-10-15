@@ -7,6 +7,7 @@
 * Author: Ungureanu Eduard
 * Author URI: https://divi.tech/
 **/
+global $post;
 
 if (is_woocommerce() && is_product()) {
 	var_dump('run code');
