@@ -12,18 +12,13 @@ defined( 'ABSPATH' ) or exit;
 
 add_action( 'plugins_loaded', 'plugin_prefix_woocommerce_check' );
 	function plugin_prefix_woocommerce_check() {
-	if( function_exists( 'is_woocommerce' ) ) { 
-		add_action( "wp_footer", "wpse_woocommerce_exists" );
-	}   
-	else {
-		add_action( "wp_footer", "wpse_woocommerce_doesnt_exist" );
-	}   
-}   
-
-function wpse_woocommerce_exists() {
-    echo "<h1>WooCommerce Exists!</h1>";
-}   
-
-function wpse_woocommerce_doesnt_exist() {
-    echo "<h1>WooCommerce Doesn't Exists!</h1>";
+		if ( function_exists( 'is_woocommerce' ) ) { 
+			global $product;
+			if (is_product()) {
+				var_dump($product->ID);
+		}
+		}   
+		else {
+			return;
+		}   
 }
